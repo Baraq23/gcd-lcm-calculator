@@ -39,21 +39,17 @@ func GcdLcm(a, b int) (gcd, lcm int) {
 		sm = a
 	}
 
-	// for lcm
+	// for lcm logically
+	l := lg
+	for i := 2; i != 1; i++ {
+		if l%sm == 0 {
+			lcm = l
+			break
+		}
+		l += lg
+	}
 
-	// fmt.Println(sm, lg)
-	// for i := 1; i != 10; i++ {
-	// 	fmt.Println(sm, lg)
-	// 	if sm == lg {
-	// 		lcm = lg
-	// 		break
-	// 	}
-	// 	if sm > lg {
-	// 		lg += lg
-	// 	}
-	// 	sm+=sm
-	// }
-
+	// fmt.Println("large & small ", lg, sm)
 
 	// for GCD
 	for i := sm; i != 0; i-- {
@@ -63,7 +59,7 @@ func GcdLcm(a, b int) (gcd, lcm int) {
 		}
 	}
 
-	
-	lcm = (a*b)/gcd
+	// for lcm formular
+	// lcm = (a*b)/gcd
 	return
 }
